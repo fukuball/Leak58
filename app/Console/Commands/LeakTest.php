@@ -51,6 +51,9 @@ class LeakTest extends Command
                     echo "$album->id start \n";
                     echo "#executions = " . $album->id . " - mem: " . memory_get_usage() . "\n";
                     echo "$album->id end \n";
+                    $album->setRelation('songs', null);
+                    unset($songs);
+                    unset($album);
                     $i++;
                 }
             break;
